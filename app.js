@@ -68,16 +68,14 @@ function showDirections(roomId) {
         <div>
             <h1>Directions to ${roomId}</h1>
 
-            <iframe
-                width="500"
-                height="400"
-                style="border:0"
-                loading="lazy"
-                allowfullscreen
-                src="https://www.google.com/maps?q=UNB+Fredericton&output=embed">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.97622582608!2d-66.64156790551854!3d45.94876876930392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca4220efd3cc45b%3A0x64f17146ff9984f2!2sUNB%20Faculty%20of%20Computer%20Science!5e0!3m2!1sen!2sca!4v1771893364977!5m2!1sen!2sca" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
             </iframe>
-
-            <p>Turn left, then proceed straight</p>
 
             <button onclick="renderCurrentScreen()">Back</button>
         </div>
