@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CS ITC Kiosk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+    <!-- HEADER -->
+    <header class="top-bar">
+        <div class="banner">
+            CSA Board Game Night Jan 22 @ 6:00pm
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="screen-container">
+        <!-- Injected by JS -->
+    </main>
+
+    <!-- CAROUSEL CONTROLS -->
+    <div class="carousel-controls">
+    <button class="arrow" onclick="prevScreen()">◀</button>
+
+    <div id="screen-indicator">
+        🏠
+    </div>
+
+    <button class="arrow" onclick="nextScreen()">▶</button>
+    </div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
