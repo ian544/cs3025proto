@@ -22,3 +22,9 @@ const announcements = [
         description: "Come join us for games in the CS Lounge."
     }
 ];
+
+const faqs = [
+  { question: "What room number is the Dean's Office", answer: "C304" },
+  { question: "What are the CS Library hours?", answer: "Mon–Thu 8am–9pm, Friday: 8am-5pm" },
+  { question: "The kiosk isn't working properly, who do I contact?", answer: "Email itservicedesk@unb.ca" }
+];

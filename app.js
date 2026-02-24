@@ -3,7 +3,8 @@ let currentScreen = 0;
 const screens = [
     { render: renderHome, icon: "🏠" },
     { render: renderFindRoom, icon: "🔎" },
-    { render: renderAnnouncements, icon: "📢" }
+    { render: renderAnnouncements, icon: "📢" },
+    { render: renderFAQ, icon: "❓" }
 ];
 
 function nextScreen() {
@@ -65,6 +66,22 @@ function renderAnnouncements() {
     `).join("");
 
     document.getElementById("screen-container").innerHTML = content;
+}
+
+function renderFAQ() {
+  const content = faqs.map(f => `
+    <div class="card">
+      <h2>${f.question}</h2>
+      <p>${f.answer}</p>
+    </div>
+  `).join("");
+
+  document.getElementById("screen-container").innerHTML = `
+    <div>
+      <h1>FAQ</h1>
+      ${content}
+    </div>
+  `;
 }
 
 function showDirections(roomId) {
