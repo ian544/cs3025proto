@@ -1,6 +1,18 @@
 const rooms = [
-    { id: "ITC 314", x: 45.4215, y: -75.6972 },
-    { id: "ITC 315", x: 45.4217, y: -75.6970 }
+    { id: "C304" },
+    { id: "C306" },
+    { id: "C314" },
+    { id: "C315" },
+    { id: "C316" },
+    { id: "C317" },
+    { id: "C318" },
+    { id: "C319" },
+    { id: "C320" },
+    { id: "C321" },
+    { id: "C322" },
+    { id: "C323" },
+    { id: "Male Bathroom" },
+    { id: "Female Bathroom" }
 ];
 
 const announcements = [

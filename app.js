@@ -32,8 +32,12 @@ function renderHome() {
         <div class="home-screen">
             <h1>Welcome</h1>
             <h2>${new Date().toLocaleTimeString()}</h2>
+            <div class="map-wrapper">
+                <img src="assets/maps/floorC.png" class="map-image">
+            </div>
         </div>
     `;
+    
 }
 
 function renderFindRoom() {
