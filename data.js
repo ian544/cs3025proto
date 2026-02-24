@@ -1,18 +1,18 @@
 const rooms = [
-    { id: "C304" },
-    { id: "C306" },
-    { id: "C314" },
-    { id: "C315" },
-    { id: "C316" },
-    { id: "C317" },
-    { id: "C318" },
-    { id: "C319" },
-    { id: "C320" },
-    { id: "C321" },
-    { id: "C322" },
-    { id: "C323" },
-    { id: "Male Bathroom" },
-    { id: "Female Bathroom" }
+    { id: "C304", type: "Faculty Office", owner: "Dr. Benedicenti", features: ["Office Hours"] },
+    { id: "C306", type: "Faculty Office", owner: "Dean's Office", features: ["Office Hours"] },
+    { id: "C314", type: "Faculty Office", owner: "Co-Op Office", features: ["Office Hours"] },
+    { id: "C315", type: "Faculty Office", owner: "Candace Currie", features: ["Office Hours"] },
+    { id: "C316", type: "Faculty Office", owner: "Bryan Facey", features: ["Office Hours"] },
+    { id: "C317", type: "Classroom", owner: null, features: ["Projector"] },
+    { id: "C318", type: "Faculty Office", owner: "Dr. Kent", features: ["Office Hours"] },
+    { id: "C319", type: "Faculty Office", owner: "Sonya Hull", features: ["Office Hours"] },
+    { id: "C320", type: "Faculty Office", owner: "Dr. McAllister", features: ["Office Hours"] },
+    { id: "C321", type: "Faculty Office", owner: "Dr. Bremner", features: ["Office Hours"] },
+    { id: "C322", type: "Faculty Office", owner: "Dr. Evans", features: ["Office Hours"] },
+    { id: "C323", type: "Faculty Office", owner: "Dr. Cook", features: ["Office Hours"] },
+    { id: "Male Bathroom", type: "Washroom", owner: null, features: [] },
+    { id: "Female Bathroom", type: "Washroom", owner: null, features: [] }
 ];
 
 const announcements = [
