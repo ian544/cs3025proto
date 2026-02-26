@@ -1,10 +1,10 @@
 let currentScreen = 0;
 
 const screens = [
-    { render: renderHome, icon: "🏠" },
-    { render: renderFindRoom, icon: "🔎" },
-    { render: renderAnnouncements, icon: "📢" },
-    { render: renderFAQ, icon: "❓" }
+  { render: renderHome,          iconFile: "2.png", alt: "Home" },
+  { render: renderFindRoom,      iconFile: "3.png", alt: "Find Room" },
+  { render: renderAnnouncements, iconFile: "1.png", alt: "Announcements" },
+  { render: renderFAQ,           iconFile: "4.png", alt: "FAQ" }
 ];
 
 function nextScreen() {
@@ -18,14 +18,14 @@ function prevScreen() {
 }
 
 function renderCurrentScreen() {
-    const screen = screens[currentScreen];
-
-    screen.render();
-    updateIndicator(screen.icon);
+  const screen = screens[currentScreen];
+  screen.render();
+  updateIndicator(screen.iconFile, screen.alt);
 }
 
-function updateIndicator(icon) {
-    document.getElementById("screen-indicator").innerText = icon;
+function updateIndicator(iconFile, altText = "Screen") {
+  document.getElementById("screen-indicator").innerHTML =
+    `<img class="ui-icon" src="img/${iconFile}" alt="${altText}">`;
 }
 
 function renderHome() {
@@ -41,15 +41,14 @@ function renderHome() {
     
 }
 
-function getRoomIcon(type) {
-    switch(type) {
-        case "Faculty Office": return "👨‍🏫";
-        case "Classroom": return "📚";
-        case "Washroom": return "🚻";
-        default: return "📍";
-    }
+function getRoomIconFile(type) {
+  switch(type) {
+    case "Faculty Office": return "6.png";
+    case "Classroom":      return "5.png";
+    case "Washroom":       return "7.png";
+    default:               return "4.png"; // fallback (question icon)
+  }
 }
-
 function renderAnnouncements() {
 
     const announcementList = announcements.map((a, index) => `
@@ -92,7 +91,10 @@ function renderFAQ() {
         <div class="faq-card" onclick="toggleFAQ(${index})">
 
             <div class="faq-question">
-                <span>❓ ${faq.question}</span>
+                <span class="faq-question-left">
+                <img class="ui-icon faq-icon" src="img/4.png" alt="FAQ">
+                ${faq.question}
+                </span>
                 <span class="faq-arrow">▼</span>
             </div>
 
@@ -208,7 +210,9 @@ function renderRoomResults(roomList) {
     const resultsHTML = roomList.map(room => `
         <div class="room-card" onclick="showDirections('${room.id}')">
 
-            <div class="room-icon">${getRoomIcon(room.type)}</div>
+            <div class="room-icon">
+  <img class="ui-icon room-icon-img" src="img/${getRoomIconFile(room.type)}" alt="${room.type}">
+</div>
 
             <div class="room-info">
                 <div class="room-title">${room.id}</div>

@@ -11,8 +11,8 @@ const rooms = [
     { id: "C321", type: "Faculty Office", owner: "Dr. Bremner", features: ["Office Hours"] },
     { id: "C322", type: "Faculty Office", owner: "Dr. Evans", features: ["Office Hours"] },
     { id: "C323", type: "Faculty Office", owner: "Dr. Cook", features: ["Office Hours"] },
-    { id: "MaleBathroom", type: "Washroom", owner: null, features: [] },
-    { id: "FemaleBathroom", type: "Washroom", owner: null, features: [] }
+    { id: "Mens Bathroom", type: "Washroom", owner: null, features: [] },
+    { id: "Womens Bathroom", type: "Washroom", owner: null, features: [] }
 ];
 
 const announcements = [
