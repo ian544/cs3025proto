@@ -21,6 +21,7 @@ function renderCurrentScreen() {
   const screen = screens[currentScreen];
   screen.render();
   updateIndicator(screen.iconFile, screen.alt);
+  updateHomeButtonVisibility();
 }
 
 function updateIndicator(iconFile, altText = "Screen") {
@@ -242,6 +243,17 @@ function renderRoomResults(roomList) {
 
     resultsContainer.innerHTML =
         resultsHTML || `<p class="no-results">No rooms found</p>`;
+}
+
+function goHome() {
+  currentScreen = 0;
+  renderCurrentScreen();
+}
+
+function updateHomeButtonVisibility() {
+  const btn = document.getElementById("home-btn");
+  if (!btn) return;
+  btn.style.display = (currentScreen === 0) ? "none" : "flex";
 }
 
 function renderFindRoom() {

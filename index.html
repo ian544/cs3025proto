@@ -22,18 +22,29 @@
     </main>
 
     <!-- CAROUSEL CONTROLS -->
-    <div class="carousel-controls">
+<div class="carousel-controls">
+
+  <div class="controls-left">
+    <button class="home-btn" id="home-btn" onclick="goHome()">
+      <img class="home-icon" src="img/2.png" alt="Home">
+    </button>
+  </div>
+
+  <div class="controls-center">
     <button class="arrow" onclick="prevScreen()">
-  <img class="arrow-icon" src="img/left.png" alt="Previous">
-</button>
+      <img class="arrow-icon" src="img/left.png" alt="Previous">
+    </button>
 
     <div id="screen-indicator">
-        <img class="ui-icon" src="img/2.png" alt="Home">
+      <img class="ui-icon" src="img/2.png" alt="Home">
     </div>
 
     <button class="arrow" onclick="nextScreen()">
-        <img class="arrow-icon" src="img/right.png" alt="Next">
+      <img class="arrow-icon" src="img/right.png" alt="Next">
     </button>
+  </div>
+
+  <div class="controls-right"></div>
 
 </div>
 
