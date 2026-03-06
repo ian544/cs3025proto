@@ -138,7 +138,7 @@ function showDirections(roomId) {
 }
 
 function goBack() {
-    renderFindRoom();
+  renderFindRoom(); // renderFindRoom now resets, so you're good
 }
 
 let bannerIndex = 0;
@@ -201,6 +201,21 @@ function setFilter(filter, buttonElement) {
     applyFilters();
 }
 
+function resetFindRoomState() {
+  activeFilter = "All";
+
+  const searchInput = document.getElementById("room-search");
+  if (searchInput) searchInput.value = "";
+
+  document.querySelectorAll(".filter-button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  const firstBtn = document.querySelector(".filter-button");
+  if (firstBtn) firstBtn.classList.add("active");
+
+  renderRoomResults(rooms);
+}
+
 function renderRoomResults(roomList) {
 
     const resultsContainer = document.getElementById("room-results");
@@ -256,10 +271,7 @@ function renderFindRoom() {
         </div>
     `;
 
-    // Highlight default filter
-    document.querySelector(".filter-button").classList.add("active");
-
-    applyFilters();
+    resetFindRoomState();
 }
 
 renderCurrentScreen();
