@@ -12,7 +12,17 @@ const rooms = [
     { id: "C322", type: "Faculty Office", owner: "Dr. Evans", features: ["Office Hours"] },
     { id: "C323", type: "Faculty Office", owner: "Dr. Cook", features: ["Office Hours"] },
     { id: "MaleBathroom", type: "Washroom", owner: null, features: [] },
-    { id: "FemaleBathroom", type: "Washroom", owner: null, features: [] }
+    { id: "FemaleBathroom", type: "Washroom", owner: null, features: [] },
+    { id: "MaleBathroomD", type: "Washroom", owner: null, features: [] },
+    { id: "FemaleBathroomD", type: "Washroom", owner: null, features: [] },
+    { id: "D414", type: "Lab", owner: null, features: [] },
+    { id: "D415", type: "Lab", owner: null, features: [] },
+    { id: "D418", type: "Faculty Office", owner: "", features: ["Office Hours"] },
+    { id: "D419", type: "Faculty Office", owner: "", features: ["Office Hours"] },
+    { id: "D420", type: "Faculty Office", owner: "Dr. Fleming", features: ["Office Hours"] },
+    { id: "D421", type: "Faculty Office", owner: "", features: ["Office Hours"] },
+    { id: "D422", type: "Faculty Office", owner: "Dr. Bidlake", features: ["Office Hours"] },
+    { id: "D423", type: "Faculty Office", owner: "", features: ["Office Hours"] },
 ];
 
 const announcements = [
