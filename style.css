@@ -20,18 +20,46 @@ body {
 .banner {
   background: white;
   border-radius: 16px;
-  padding: 10px 18px;
-  border-left: 5px solid #d32f2f00;
-  font-size: 16px;
-  font-weight: 600;
+  padding: 12px 16px;
+  max-width: 900px;   /* adjust: 500–800px */
+  width: 100%;         /* responsive on smaller screens */
+  margin: 0 auto;     /* centers the banner box */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 1.2s ease;
-  gap: 10px;
+  gap: 20px;
 }
 
+.banner-icon {
+  width: 34px;
+  height: 34px;
+  display: block;
+}
+
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.1;
+  align-items: center;
+  text-align: center;
+}
+
+.banner-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #d32f2f;
+}
+
+.banner-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+}
 #screen-container {
   flex: 1;
   overflow-y: auto;
@@ -44,9 +72,9 @@ body {
 /* Bottom menu (replaces carousel) */
 .bottom-menu {
   flex-shrink: 0;
-  max-width: 700px; 
-  max-height: 100px; /* pick the width you want */
-  width: 92%;         /* still responsive */
+  max-width: 700px;
+  max-height: 100px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
@@ -59,6 +87,53 @@ body {
   gap: 10px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(6px);
+}
+
+.home-map-wrap{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floor-controls{
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.floor-label{
+  background: white;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-weight: 700;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+.floor-btn{
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 14px;
+  background: #d32f2f;
+  color: white;
+  font-size: 28px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floor-btn:active{
+  transform: scale(0.97);
 }
 
 .menu-btn {
@@ -75,6 +150,12 @@ body {
   cursor: pointer;
 }
 
+.floor-icon{
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .menu-icon {
   width: 45px;
   height: 45px;
@@ -82,7 +163,7 @@ body {
 }
 
 .menu-btn span {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
   color: #444;
 }
@@ -95,7 +176,6 @@ body {
   color: white;
 }
 
-/* Optional: makes icons white when active. Remove if you want original colors. */
 .menu-btn.active .menu-icon {
   filter: brightness(0) invert(1);
 }

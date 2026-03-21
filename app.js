@@ -26,13 +26,43 @@ function renderCurrentScreen() {
   updateMenuActive();
 }
 
+let currentFloorIndex = 0;
+
+const floors = [
+  { name: "C", src: "assets/maps/ITCFloorPlain.png" },
+  { name: "D", src: "assets/maps/ITDFloorPlain3.png" } // <-- change to your real D-floor filename
+];
+
+function changeFloor(direction) {
+  currentFloorIndex = (currentFloorIndex + direction + floors.length) % floors.length;
+
+  const mapImg = document.getElementById("home-map-image");
+  const label = document.getElementById("floor-label");
+
+  if (mapImg) mapImg.src = floors[currentFloorIndex].src;
+  if (label) label.innerText = `Floor ${floors[currentFloorIndex].name}`;
+}
+
 function renderHome() {
+  const floor = floors[currentFloorIndex];
+
   document.getElementById("screen-container").innerHTML = `
     <div class="home-screen">
       <h1>Welcome</h1>
-      <h2>${new Date().toLocaleTimeString()}</h2>
-      <div class="map-wrapper">
-        <img src="assets/maps/ITCFloorPlain.png" class="map-image">
+      <h2>${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h2>
+
+      <div class="home-map-wrap">
+        <img id="home-map-image" src="${floor.src}" class="map-image" alt="Floor Map">
+
+        <div class="floor-controls">
+          <div class="floor-label" id="floor-label">Floor ${floor.name}</div> 
+            <button class="floor-btn" onclick="changeFloor(1)">
+            <img class="floor-icon" src="img/11.png" alt="Up floor">
+            </button>
+            <button class="floor-btn" onclick="changeFloor(-1)">
+            <img class="floor-icon" src="img/10.png" alt="Down floor">
+            </button>
+        </div>
       </div>
     </div>
   `;
@@ -127,19 +157,20 @@ function goBack() {
 let bannerIndex = 0;
 
 function rotateBanner() {
+  const titleEl = document.getElementById("banner-title");
   const banner = document.getElementById("announcement-banner");
-  if (!banner || announcements.length === 0) return;
+
+  if (!banner || !titleEl || announcements.length === 0) return;
 
   banner.style.opacity = 0;
 
   setTimeout(() => {
-    banner.innerText = announcements[bannerIndex].title;
+    titleEl.innerText = announcements[bannerIndex].title;
     banner.style.opacity = 1;
   }, 600);
 
   bannerIndex = (bannerIndex + 1) % announcements.length;
 }
-
 setInterval(rotateBanner, 8000);
 rotateBanner();
 
