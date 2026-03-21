@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CS ITC Kiosk</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>CS ITC Kiosk</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="app">
 
-    <!-- HEADER -->
-    <header class="top-bar">
-        <div class="banner" id="announcement-banner">
-            📢 Welcome to CS ITC
-        </div>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main id="screen-container">
-        <!-- Injected by JS -->
-    </main>
-
-    <!-- CAROUSEL CONTROLS -->
-<div class="carousel-controls">
-
-  <div class="controls-left">
-    <button class="home-btn" id="home-btn" onclick="goHome()">
-      <img class="home-icon" src="img/2.png" alt="Home">
-    </button>
-  </div>
-
-  <div class="controls-center">
-    <button class="arrow" onclick="prevScreen()">
-      <img class="arrow-icon" src="img/left.png" alt="Previous">
-    </button>
-
-    <div id="screen-indicator">
-      <img class="ui-icon" src="img/2.png" alt="Home">
+  <!-- HEADER -->
+  <header class="top-bar">
+    <div class="banner" id="announcement-banner">
+      📢 Welcome to CS ITC
     </div>
+  </header>
 
-    <button class="arrow" onclick="nextScreen()">
-      <img class="arrow-icon" src="img/right.png" alt="Next">
+  <!-- MAIN CONTENT -->
+  <main id="screen-container">
+    <!-- Injected by JS -->
+  </main>
+
+  <!-- BOTTOM MENU (replaces carousel) -->
+  <div class="bottom-menu" id="bottom-menu">
+    <button class="menu-btn" onclick="goToScreen(0)" id="menu-0">
+      <img class="menu-icon" src="img/2.png" alt="Home">
+      <span>Home</span>
+    </button>
+
+    <button class="menu-btn" onclick="goToScreen(1)" id="menu-1">
+      <img class="menu-icon" src="img/3.png" alt="Find Room">
+      <span>Find</span>
+    </button>
+
+    <button class="menu-btn" onclick="goToScreen(2)" id="menu-2">
+      <img class="menu-icon" src="img/1.png" alt="Announcements">
+      <span>News</span>
+    </button>
+
+    <button class="menu-btn" onclick="goToScreen(3)" id="menu-3">
+      <img class="menu-icon" src="img/4.png" alt="FAQ">
+      <span>FAQ</span>
     </button>
   </div>
-
-  <div class="controls-right"></div>
 
 </div>
 
