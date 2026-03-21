@@ -278,8 +278,8 @@ body {
 }
 
 .room-icon-img {
-  width: 36px;
-  height: 36px;
+  width: 45px;
+  height: 45px;
   display: block;
 }
 
@@ -346,6 +346,32 @@ body {
 
 .directions-screen button:hover {
   background: #b71c1c;
+}
+
+.directions-step-title{
+  margin: 6px 0 10px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #444;
+  text-align: center;
+}
+
+.directions-controls{
+  display: flex;
+  gap: 25px;
+  margin-top: 10px;
+}
+
+.directions-controls button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+.directions-exit{
+  margin-top: 15px;
+  background: #555;
 }
 
 .faq-list {

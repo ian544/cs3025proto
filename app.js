@@ -1,5 +1,11 @@
 let currentScreen = 0;
 
+const STAIRS_IMAGE = "assets/maps/ITCStairs.png"; // <-- change to your real stairs filename
+
+let directionsSteps = [];
+let directionsStepIndex = 0;
+let currentDirectionsRoomId = null;
+
 const screens = [
   { render: renderHome,          iconFile: "2.png", alt: "Home" },
   { render: renderFindRoom,      iconFile: "3.png", alt: "Find Room" },
@@ -73,6 +79,8 @@ function getRoomIconFile(type) {
     case "Faculty Office": return "6.png";
     case "Classroom":      return "5.png";
     case "Washroom":       return "7.png";
+    case "Lab":            return "LabIcon.png"
+    case "Social":            return "couch.png"
     default:               return "4.png";
   }
 }
@@ -138,15 +146,27 @@ function toggleFAQ(index) {
 }
 
 function showDirections(roomId) {
-  const imagePath = `assets/maps/${roomId}.png`;
+  currentDirectionsRoomId = roomId;
 
-  document.getElementById("screen-container").innerHTML = `
-    <div class="directions-screen">
-      <h1>Directions to ${roomId}</h1>
-      <img src="${imagePath}" class="directions-map">
-      <button onclick="goBack()">Back</button>
-    </div>
-  `;
+  const room = rooms.find(r => r.id === roomId);
+  const isDFloor = room && room.floor === "D";
+
+  directionsSteps = [];
+
+  if (isDFloor) {
+    directionsSteps.push({
+      title: "Go to the stairs",
+      src: STAIRS_IMAGE
+    });
+  }
+
+  directionsSteps.push({
+    title: isDFloor ? `From stairs to ${roomId}` : `To ${roomId}`,
+    src: `assets/maps/${roomId}.png`
+  });
+
+  directionsStepIndex = 0;
+  renderDirections();
 }
 
 function goBack() {
@@ -175,6 +195,48 @@ setInterval(rotateBanner, 8000);
 rotateBanner();
 
 let activeFilter = "All";
+
+function renderDirections() {
+  const step = directionsSteps[directionsStepIndex];
+  const multiStep = directionsSteps.length > 1;
+
+  document.getElementById("screen-container").innerHTML = `
+    <div class="directions-screen">
+      <h1>Directions to ${currentDirectionsRoomId}</h1>
+
+      ${multiStep ? `
+        <div class="directions-step-title">
+          Step ${directionsStepIndex + 1} of ${directionsSteps.length}: ${step.title}
+        </div>
+      ` : ``}
+
+      <img src="${step.src}" class="directions-map" alt="Directions">
+
+      ${multiStep ? `
+        <div class="directions-controls">
+          <button onclick="prevDirectionStep()" ${directionsStepIndex === 0 ? "disabled" : ""}>Back</button>
+          <button onclick="nextDirectionStep()" ${directionsStepIndex === directionsSteps.length - 1 ? "disabled" : ""}>Next</button>
+        </div>
+      ` : ``}
+
+      <button class="directions-exit" onclick="goBack()">Return to Find</button>
+    </div>
+  `;
+}
+
+function nextDirectionStep() {
+  if (directionsStepIndex < directionsSteps.length - 1) {
+    directionsStepIndex++;
+    renderDirections();
+  }
+}
+
+function prevDirectionStep() {
+  if (directionsStepIndex > 0) {
+    directionsStepIndex--;
+    renderDirections();
+  }
+}
 
 function resetFindRoomState() {
   activeFilter = "All";
@@ -264,7 +326,8 @@ function renderFindRoom() {
         <button class="filter-button" onclick="setFilter('Faculty Office', this)">Offices</button>
         <button class="filter-button" onclick="setFilter('Classroom', this)">Classrooms</button>
         <button class="filter-button" onclick="setFilter('Washroom', this)">Washrooms</button>
-      </div>
+        <button class="filter-button" onclick="setFilter('Lab', this)">Labs</button>
+    </div>
 
       <div id="room-results"></div>
     </div>
